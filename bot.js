@@ -67,6 +67,7 @@ ZeroBot ✨
 『!avatar / يعرض صورتك او صوره شخص』
 『!dt / يعرض الوقت في الامارات و مكه المكرمه و مصر و التاريخ』
 『!invites / لمعرفة كم شخص دخلت للسيرفر』
+『!colors /لعرض قائمة الألوان』
 **
 
         ***__Bot orders__***
@@ -13247,10 +13248,10 @@ if (message.content.toLowerCase().startsWith(prefix + `new`)) {
         c.send({ embed: embed });
     }).catch(console.error);
 }
-if (message.content.toLowerCase().startsWith(prefix + `c`)) {
+if (message.content.toLowerCase().startsWith(prefix + `close`)) {
     if (!message.channel.name.startsWith(`ticket`)) return message.channel.send(`لا يمكنك استخدام أمر الإغلاق خارج قناة التذاكر`);
  
-    message.channel.send(`**c** : هل انت متأكد من اغلاق التذكرة ؟ اذا انت متأكد اكتب`)
+    message.channel.send(`**confirm** : هل انت متأكد من اغلاق التذكرة ؟ اذا انت متأكد اكتب`)
     .then((m) => {
       message.channel.awaitMessages(response => response.content === 'c', {
         max: 1,
