@@ -13223,7 +13223,7 @@ client.on('message', message => {
 if (message.content.toLowerCase().startsWith(prefix + `new`)) {
     const reason = message.content.split(" ").slice(1).join(" ");
     if (!message.guild.roles.exists("name", "Support Team")) return message.channel.send(`\`Support Team\` **لا توجد رتبة بأسم**`);
-    if (message.guild.channels.exists("name", "ticket 1-" + message.author.id)) return message.channel.send(`**لديك تذكرة مفتوحة بالفعل**`);
+    if (message.guild.channels.exists("name", "ticket-" + message.author.id)) return message.channel.send(`**لديك تذكرة مفتوحة بالفعل**`);
     message.guild.createChannel(`ticket`, "text").then(c => {
         let role = message.guild.roles.find("name", "Support Team");
         let role2 = message.guild.roles.find("name", "@everyone");
@@ -13236,7 +13236,8 @@ if (message.content.toLowerCase().startsWith(prefix + `new`)) {
             READ_MESSAGES: false
         });
         c.overwritePermissions(message.author, {
-            SEND_MESSAGES: true,            READ_MESSAGES: true
+            SEND_MESSAGES: true,
+            READ_MESSAGES: true
         });
         message.channel.send(`:white_check_mark: تم انشاء التذكرة`);
         const embed = new Discord.RichEmbed()
@@ -13252,7 +13253,7 @@ if (message.content.toLowerCase().startsWith(prefix + `close`)) {
  
     message.channel.send(`**confirm** : هل انت متأكد من اغلاق التذكرة ؟ اذا انت متأكد اكتب`)
     .then((m) => {
-      message.channel.awaitMessages(response => response.content === 'c', {
+      message.channel.awaitMessages(response => response.content === 'confirm', {
         max: 1,
         time: 10000,
         errors: ['time'],
