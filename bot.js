@@ -939,21 +939,6 @@ hours = currentTime.getHours() + 3 ,
       
       message.channel.fetchMessages({limit: msg}).then(messages => message.channel.bulkDelete(messages)).catch(console.error);
 
-delete warn[message.author.id];
-    delete user[message.author.id];
-	const embed500 = new Discord.RichEmbed()
-     .setTitle(`المرسل ${message.author.username}#${message.author.discriminator} `)
-      .setDescription(":white_check_mark:  | `محاولة السبام`\n\nالاسم:\n"+`${message.author.username}#${message.author.discriminator}`+"\nالعقوبة:\n  MuteChat / ميوت كتابي\n")
-      .setFooter("Anti - Spam")
-      .setColor("c91616")
-    message.channel.send(embed500)
-    	const embed20 = new Discord.RichEmbed()
-      .setTitle(":scales: | تمت معاقبتك")
-      .setDescription(`**:small_blue_diamond:لقد قمت بمخالفة قوانين السيرفر**\n \n:gun: : نوع العقوبه\nMuteChat / ميوت كتابي\n:clock1: وقت وتاريخ العقوبه:\n`+ Year + "/" + Month + "/" + Day +', '+hours +'-' +minutes+'-'+seconds+"\n \n \n`في حال كانت العقوبة بالغلط, تواصل مع الادارة`")
-          .setFooter("Anti - Spam")
-      .setColor("c91616")
-    
-     message.author.send(embed20)
   
   }
 });
@@ -12600,17 +12585,6 @@ client.on("guildMemberAdd", member => {
     }).catch(console.error)
 })
 
-client.on('guildMemberAdd', member => { //LAST CODES -HONRAR-
-  member.guild.fetchInvites().then(guildInvites => {
-    const ei = invites[member.guild.id];
-    const invite = guildInvites.find(i => ei.get(i.code).uses < i.uses);
-    const inviter = client.users.get(invite.inviter.id);
-    const stewart = member.guild.channels.find("name", "welcome");
-     stewart.send(`<@${member.user.id}> تمت الدعوه من <@${inviter.id}>`);
-   //  stewart.send(`<@${member.user.id}> joined using invite code ${invite.code} from <@${inviter.id}>. Invite was used ${invite.uses} times since its creation.`);
-  });
-})
-
 client.on('messageDelete', message => {
     if(message.author.bot) return;
     if(message.channel.type === 'dm') return;
@@ -13373,23 +13347,6 @@ client.on('message' , message => {
 if(message.content === '!voice') { // الامر
     message.channel.send(`**عدد الاشخاص الموجودين بـ  الرومات الصوتيه : ${message.guild.members.filter(g => g.voiceChannel).size}**`);
 }
-});
-
-client.on('message', message => {
-    var args = message.content.split(/[ ]+/)
-    if(message.content.includes('discord.gg')){
-        message.delete()
-      message.channel.sendMessage("", {embed: {
-        title: "لا تنشر",
-        color: 0x06DF00,
-        description: "يمنع النشر في هذا السيرفر",
-        footer: {
-          text: "jumbo"
-        }
-      }}).then(msg => {msg.delete(3000)});
-                          }
- 
-     
 });
 
 client.login('NTIxMzUyODgzODQ1OTg4MzYy.Du7QfQ.ahSumv8vJbFTb9YrNvmTUhn9Rx8');
