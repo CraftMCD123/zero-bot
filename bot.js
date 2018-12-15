@@ -12483,8 +12483,7 @@ message.member.removeRole(message.guild.roles.find("name", "79"));
 message.member.removeRole(message.guild.roles.find("name", "80"));
 message.member.removeRole(message.guild.roles.find("name", "81"));
 message.member.removeRole(message.guild.roles.find("name", "82"));
-message.member.removeRole(message.guild.roles.find("name", "83"));
-message.member.removeRole(message.guild.roles.find("name", "84"));
+message.member.removeRole(message.guild.roles.find("name", "83"));message.member.removeRole(message.guild.roles.find("name", "84"));
 
 message.member.removeRole(message.guild.roles.find("name", "85"));
 
@@ -12515,7 +12514,8 @@ message.member.addRole(message.guild.roles.find("name", "100"));
 
   if (message.content === '!colors') {
       if (!message.channel.guild) return;
-    message.channel.sendFile('https://cdn.discordapp.com/attachments/500002243995762688/521307737699909642/images_7.jpg');
+    message.channel.sendFile('https://cdn.discordapp.com/attachments/521354464297353226/523405148077424640/colors.png');
+			     
   }
 	
 });
