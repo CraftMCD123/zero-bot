@@ -13270,25 +13270,6 @@ if (message.content.toLowerCase().startsWith(prefix + `close`)) {
  
 });
 
-client.on('message', message => {
-    var args = message.content.split(/[ ]+/)
-    if(message.content.includes('discord.gg')){
-        if(!message.channel.guild) return;
-        message.delete()
-    return message.reply(`** يمنع نشر الروابط  رح تاخذ ميوت 😠 ! **`)
-    }
-});
- 
- 
-client.on('message', message => {
-    var args = message.content.split(/[ ]+/)
-    if(message.content.includes('youtube')){
-        if(!message.channel.guild) return;
-        message.delete()
-    return message.reply(`** يمنع نشر الروابط  رح تاخذ ميوت 😠 ! **`)
-    }
-});
-
 client.on('message', message=> {
     if (message.author.bot) return;
     if (message.isMentioned(client.user))
@@ -13386,4 +13367,28 @@ hours = 12;
     });
   }
 });
+
+client.on('message' , message => {
+if(message.content === '!voice') { // الامر
+    message.channel.send(`**عدد الاشخاص الموجودين بـ  الرومات الصوتيه : ${message.guild.members.filter(g => g.voiceChannel).size}**`);
+}
+});
+
+client.on('message', message => {
+    var args = message.content.split(/[ ]+/)
+    if(message.content.includes('discord.gg')){
+        message.delete()
+      message.channel.sendMessage("", {embed: {
+        title: "لا تنشر",
+        color: 0x06DF00,
+        description: "يمنع النشر في هذا السيرفر",
+        footer: {
+          text: "jumbo"
+        }
+      }}).then(msg => {msg.delete(3000)});
+                          }
+ 
+     
+});
+
 client.login('NTIxMzUyODgzODQ1OTg4MzYy.Du7QfQ.ahSumv8vJbFTb9YrNvmTUhn9Rx8');
