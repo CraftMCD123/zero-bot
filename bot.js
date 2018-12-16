@@ -13347,5 +13347,28 @@ if (message.content.startsWith(prefix + 'perms')) { // الامر
  
     }
 });
+client.on('ready', () => {
+  console.log(`Logged in as ${client.user.tag}!`);
+});
+
+client.on('message', msg => {
+  if (msg.content === 'هلا') {
+    msg.channel.send('هلا ولله');
+  }
+});
+client.on('ready', () => {
+  console.log(`Logged in as ${client.user.tag}!`);
+});
+
+client.on('message', msg => {
+  if (msg.content === 'السلام عليكم') {
+    msg.channel.send('وعليكم السلام');
+  }
+});
+client.on('message', msg => {
+  if (msg.content === '@FT , CraftMCD#9007 ') {
+    msg.channel.send('مشغول يرد عليك بعدين');
+  }
+});
 
 client.login('NTIxMzUyODgzODQ1OTg4MzYy.Du7QfQ.ahSumv8vJbFTb9YrNvmTUhn9Rx8');
