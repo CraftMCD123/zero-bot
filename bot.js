@@ -13370,14 +13370,15 @@ client.on('message', msg => {
     msg.channel.send('مشغول يرد عليك بعدين');
   }
 });
+
 client.on("message", message => {
 	var prefix = "!";
 	var args = message.content.split(' ').slice(1); 
 	var msg = message.content.toLowerCase();
 	if( !message.guild ) return;
-	if( !msg.startsWith( prefix + '+role' ) ) return;
+	if( !msg.startsWith( prefix + 'role' ) ) return;
 	if(!message.member.hasPermission('MANAGE_ROLES')) return message.channel.send(' **__ليس لديك صلاحيات__**');
-	if( msg.toLowerCase().startsWith( prefix + '-role' ) ){
+	if( msg.toLowerCase().startsWith( prefix + 'roleremove' ) ){
 		if( !args[0] ) return message.reply( '**:x: يرجى وضع الشخص المراد سحب منه الرتبة**' );
 		if( !args[1] ) return message.reply( '**:x: يرجى وضع الرتبة المراد سحبها من الشخص**' );
 		var role = msg.split(' ').slice(2).join(" ").toLowerCase(); 
