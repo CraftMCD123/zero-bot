@@ -13367,7 +13367,7 @@ client.on('message', msg => {
 });
 client.on('message', msg => {
   if (msg.content === '.') {
-    msg.channel.send('-Wèlçomè Ťø Źerø Śeŕveŕ :ZERO:');
+    msg.channel.send(' W̶e̶l̶c̶o̶m̶e  ̶ Ťo  ̶S̶e̶r̶v̶e̶r  ̶Źe̶r̶o̶  ');
   }
 });
 
