@@ -13366,8 +13366,8 @@ client.on('message', msg => {
   }
 });
 client.on('message', msg => {
-  if (msg.content === '@FT , CraftMCD#9007 ') {
-    msg.channel.send('مشغول يرد عليك بعدين');
+  if (msg.content === '.') {
+    msg.channel.send('-Wèlçomè Ťø Źerø Śeŕveŕ :ZERO:');
   }
 });
 
