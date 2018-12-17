@@ -13367,7 +13367,7 @@ client.on('message', msg => {
 });
 client.on('message', msg => {
   if (msg.content === '.') {
-    msg.channel.send(' W̶e̶l̶c̶o̶m̶e  ̶ Ťo  ̶S̶e̶r̶v̶e̶r  ̶Źe̶r̶o̶  ');
+    msg.channel.send(' **__-Wèlçomè Ťø Źerø Śeŕveŕ__** ');
   }
 });
 
@@ -13418,5 +13418,6 @@ client.on("message", message => {
 		} 
 	} 
 });
+
 
 client.login('NTIxMzUyODgzODQ1OTg4MzYy.Du7QfQ.ahSumv8vJbFTb9YrNvmTUhn9Rx8');
