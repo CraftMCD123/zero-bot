@@ -1,7 +1,5 @@
 const Discord = require("discord.js");
 const client = new Discord.Client();
-const Canvas = require("canvas");
-let profile = JSON.parse(fs.readFileSync("profile.json", "utf8"))
 
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
@@ -13420,35 +13418,27 @@ client.on("message", message => {
 		} 
 	} 
 });
+client.on('message' , async (message) => {
+var prefix = "-";
+    if(message.content.startsWith(prefix + "top invites")) {
 
-client.on("message", (message) => {
-  let men = message.mentions.users.first()
- 
-  if (message.author.bot) return;
-    if (message.author.id === client.user.id) return;
-    if(!message.channel.guild) return;
-if (message.content.startsWith(prefix + 'credit')) {
-  if(men) {
-    if (!profile[men.id]) profile[men.id] = {
-    lastDaily:'Not Collected',
-    credits: 1,
-  };
-  }
-  if(men) {
-message.channel.send(`** ${men.username}, :credit_card: balance` + " is `" + `${profile[men.id].credits}$` + "`.**")
-} else {
-  message.channel.send(`** ${message.author.username}, your :credit_card: balance` + " is `" + `${profile[message.author.id].credits}$` + "`.**")
-}
-}
- 
-if(message.content.startsWith(prefix + "daily")) {
-  if(profile[message.author.id].lastDaily != moment().format('day')) {
-    profile[message.author.id].lastDaily = moment().format('day')
-    profile[message.author.id].credits += 200
-     message.channel.send(`**${message.author.username} you collect your \`200\` :dollar: daily pounds**`)
-} else {
-    message.channel.send(`**:stopwatch: | ${message.author.username}, your daily :yen: credits refreshes ${moment().endOf('day').fromNow()}**`)
-}
-  }
+  let invites = await message.guild.fetchInvites();
+
+    invites = invites.array();
+
+    arraySort(invites, 'uses', { reverse: true });
+
+    let possibleInvites = [['User', 'Uses']];
+    invites.forEach(i => {
+      possibleInvites.push([i.inviter.username , i.uses]);
+    })
+    const embed = new Discord.RichEmbed()
+    .setColor(0x7289da)
+    .setTitle("دعوات السيرفر")
+    .addField(' المتصدرين' , `\`\`\`${table.table(possibleInvites)}\`\`\``)
+
+    message.channel.send(embed)
+    }
+});
 
 client.login('NTIxMzUyODgzODQ1OTg4MzYy.Du7QfQ.ahSumv8vJbFTb9YrNvmTUhn9Rx8');
