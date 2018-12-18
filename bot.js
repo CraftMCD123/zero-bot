@@ -958,7 +958,7 @@ client.on('message', message => {
        if(message.content === prefix + "mutechannel") {
                            if(!message.channel.guild) return message.reply('** This command only for servers**');
 
-   if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply(' **__ليس لديك صلاحيات__**');
+   if(!message.member.hasPermission('READ_MESSAGES')) return message.reply(' **__ليس لديك صلاحيات__**');
               message.channel.overwritePermissions(message.guild.id, {
             SEND_MESSAGES: false
 
@@ -970,7 +970,7 @@ client.on('message', message => {
     if(message.content === prefix + "unmutechannel") {
                         if(!message.channel.guild) return message.reply('** This command only for servers**');
 
-   if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply('**__ليس لديك صلاحيات__**');
+   if(!message.member.hasPermission('READ_MESSAGES')) return message.reply('**__ليس لديك صلاحيات__**');
               message.channel.overwritePermissions(message.guild.id, {
             SEND_MESSAGES: true
 
