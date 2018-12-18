@@ -790,7 +790,7 @@ message.channel.sendFile(canvas.toBuffer());
 
 client.on("message", (message) => {
 if (message.content.startsWith("!ct")) {
-            if (!message.member.hasPermission('SEND_MESSAGES')) return message.reply("You Don't Have `MANAGE_CHANNELS` Premissions ");
+            if (!message.member.hasPermission('MANAGE_CHANNELS')) return message.reply("You Don't Have `MANAGE_CHANNELS` Premissions ");
         let args = message.content.split(" ").slice(1);
     message.guild.createChannel(args.join(' '), 'text');
 message.channel.sendMessage('تـم إنـشاء روم كـتابـي')
@@ -800,7 +800,7 @@ message.channel.sendMessage('تـم إنـشاء روم كـتابـي')
 
 client.on("message", (message) => {
 if (message.content.startsWith("!cv")) {
-            if (!message.member.hasPermission('SEND_MESSAGES')) return message.reply("You Don't Have `MANAGE_CHANNELS` Premissions ");
+            if (!message.member.hasPermission('MANAGE_CHANNELS')) return message.reply("You Don't Have `MANAGE_CHANNELS` Premissions ");
         let args = message.content.split(" ").slice(1);
     message.guild.createChannel(args.join(' '), 'voice');
     message.channel.sendMessage('تـم إنـشاء روم صـوتي')
@@ -811,7 +811,7 @@ if (message.content.startsWith("!cv")) {
 
 client.on("message", (message) => {
     if (message.content.startsWith('!delet')) {
-        if (!message.member.hasPermission('')) return message.reply("You Don't Have `MANAGE_CHANNELS` Premissions ");
+        if (!message.member.hasPermission('SEND_MESSAGES')) return message.reply("You Don't Have `MANAGE_CHANNELS` Premissions ");
 
         let args = message.content.split(' ').slice(1);
         let channel = message.client.channels.find('name', args.join(' '));
